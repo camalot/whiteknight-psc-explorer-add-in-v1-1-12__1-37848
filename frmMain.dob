@@ -1,0 +1,1929 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MsComCtl.ocx"
+Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.OCX"
+Begin VB.UserDocument udMain 
+   ClientHeight    =   4020
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   8010
+   HScrollSmallChange=   15
+   ScaleHeight     =   268
+   ScaleMode       =   3  'Pixel
+   ScaleWidth      =   534
+   ScrollBars      =   0  'None
+   VScrollSmallChange=   15
+   Begin MSWinsockLib.Winsock wsCodeMonth 
+      Left            =   7560
+      Top             =   960
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   393216
+   End
+   Begin MSComctlLib.ListView lvTopCode 
+      Height          =   1695
+      Left            =   120
+      TabIndex        =   9
+      Top             =   960
+      Visible         =   0   'False
+      Width           =   4575
+      _ExtentX        =   8070
+      _ExtentY        =   2990
+      View            =   3
+      LabelEdit       =   1
+      LabelWrap       =   -1  'True
+      HideSelection   =   0   'False
+      FullRowSelect   =   -1  'True
+      GridLines       =   -1  'True
+      _Version        =   393217
+      Icons           =   "imgList"
+      SmallIcons      =   "imgList"
+      ForeColor       =   -2147483640
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Appearance      =   0
+      NumItems        =   6
+      BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Key             =   "Rank"
+         Object.Tag             =   "Rank"
+         Text            =   "Rank"
+         Object.Width           =   1323
+      EndProperty
+      BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   1
+         Key             =   "Title"
+         Object.Tag             =   "Title"
+         Text            =   "Title"
+         Object.Width           =   2646
+      EndProperty
+      BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   2
+         Key             =   "Author"
+         Object.Tag             =   "Author"
+         Text            =   "Author"
+         Object.Width           =   2646
+      EndProperty
+      BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   3
+         Key             =   "Votes"
+         Object.Tag             =   "Votes"
+         Text            =   "Execellent Votes"
+         Object.Width           =   1852
+      EndProperty
+      BeginProperty ColumnHeader(5) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   4
+         Key             =   "Stats"
+         Object.Tag             =   "Stats"
+         Text            =   "Rating Stats"
+         Object.Width           =   2646
+      EndProperty
+      BeginProperty ColumnHeader(6) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   5
+         Key             =   "Date"
+         Object.Tag             =   "Date"
+         Text            =   "Date Submitted"
+         Object.Width           =   2646
+      EndProperty
+   End
+   Begin MSWinsockLib.Winsock wsDesc 
+      Left            =   7080
+      Top             =   960
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   393216
+   End
+   Begin VB.PictureBox picTools 
+      BorderStyle     =   0  'None
+      Height          =   495
+      Left            =   120
+      ScaleHeight     =   33
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   393
+      TabIndex        =   8
+      Top             =   3120
+      Width           =   5895
+      Begin VB.Image cmdAbout 
+         Height          =   480
+         Left            =   3000
+         MouseIcon       =   "frmMain.dox":0000
+         MousePointer    =   99  'Custom
+         Picture         =   "frmMain.dox":08CA
+         ToolTipText     =   "About PSC Explorer"
+         Top             =   0
+         Width           =   480
+      End
+      Begin VB.Image cmdPSC 
+         Height          =   450
+         Left            =   3840
+         MouseIcon       =   "frmMain.dox":0CFC
+         MousePointer    =   99  'Custom
+         Picture         =   "frmMain.dox":15C6
+         ToolTipText     =   "Visit Planet Source Code"
+         Top             =   30
+         Width           =   1500
+      End
+      Begin VB.Image cmdViewDesc 
+         Height          =   480
+         Left            =   2400
+         MouseIcon       =   "frmMain.dox":2A46
+         MousePointer    =   99  'Custom
+         Picture         =   "frmMain.dox":3310
+         ToolTipText     =   "View Description"
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   480
+      End
+      Begin VB.Image cmdViewCode 
+         Height          =   480
+         Left            =   1800
+         MouseIcon       =   "frmMain.dox":376A
+         MousePointer    =   99  'Custom
+         Picture         =   "frmMain.dox":4034
+         ToolTipText     =   "View Copy & Paste Code"
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   480
+      End
+      Begin VB.Image cmdDownloadZip 
+         Height          =   480
+         Left            =   1200
+         MouseIcon       =   "frmMain.dox":4480
+         MousePointer    =   99  'Custom
+         Picture         =   "frmMain.dox":4D4A
+         ToolTipText     =   "Download Zip File"
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   480
+      End
+      Begin VB.Image cmdOptions 
+         Height          =   480
+         Left            =   5400
+         MouseIcon       =   "frmMain.dox":522F
+         MousePointer    =   99  'Custom
+         Picture         =   "frmMain.dox":5AF9
+         Top             =   0
+         Width           =   480
+      End
+      Begin VB.Image cmdScreenShot 
+         Height          =   480
+         Left            =   600
+         MouseIcon       =   "frmMain.dox":5FE3
+         MousePointer    =   99  'Custom
+         Picture         =   "frmMain.dox":68AD
+         ToolTipText     =   "View Screenshot"
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   480
+      End
+      Begin VB.Image cmdLaunchIE 
+         Height          =   480
+         Left            =   30
+         MouseIcon       =   "frmMain.dox":6CFF
+         MousePointer    =   99  'Custom
+         Picture         =   "frmMain.dox":75C9
+         ToolTipText     =   "Goto PSC Page"
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   480
+      End
+   End
+   Begin MSComctlLib.StatusBar Status1 
+      Align           =   2  'Align Bottom
+      Height          =   300
+      Left            =   0
+      TabIndex        =   4
+      Top             =   3720
+      Width           =   8010
+      _ExtentX        =   14129
+      _ExtentY        =   529
+      _Version        =   393216
+      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
+         NumPanels       =   2
+         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+            Object.Width           =   7937
+            MinWidth        =   7937
+            Picture         =   "frmMain.dox":7AEF
+         EndProperty
+         BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+            Style           =   5
+            Alignment       =   1
+            Object.Width           =   2117
+            MinWidth        =   2117
+            TextSave        =   "11:22 PM"
+         EndProperty
+      EndProperty
+   End
+   Begin VB.Timer tmrTimeOut 
+      Enabled         =   0   'False
+      Interval        =   1000
+      Left            =   6600
+      Top             =   960
+   End
+   Begin MSComctlLib.ImageList imgList 
+      Left            =   4920
+      Top             =   960
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   16
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   5
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmMain.dox":8089
+            Key             =   "Zip"
+            Object.Tag             =   "Zip"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmMain.dox":8431
+            Key             =   "Article"
+            Object.Tag             =   "Article"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmMain.dox":87F1
+            Key             =   "Code"
+            Object.Tag             =   "Code"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmMain.dox":8B96
+            Key             =   "Review"
+            Object.Tag             =   "Review"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmMain.dox":8F2D
+            Key             =   "TopCode"
+            Object.Tag             =   "TopCode"
+         EndProperty
+      EndProperty
+   End
+   Begin MSComctlLib.ListView lvData 
+      Height          =   1695
+      Left            =   120
+      TabIndex        =   3
+      Top             =   960
+      Width           =   5175
+      _ExtentX        =   9128
+      _ExtentY        =   2990
+      View            =   3
+      LabelEdit       =   1
+      LabelWrap       =   -1  'True
+      HideSelection   =   0   'False
+      FullRowSelect   =   -1  'True
+      GridLines       =   -1  'True
+      _Version        =   393217
+      Icons           =   "imgList"
+      SmallIcons      =   "imgList"
+      ForeColor       =   -2147483640
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Appearance      =   0
+      NumItems        =   8
+      BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Key             =   "Title"
+         Text            =   "Title"
+         Object.Width           =   5292
+      EndProperty
+      BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   1
+         Key             =   "Author"
+         Text            =   "Author"
+         Object.Width           =   3969
+      EndProperty
+      BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   2
+         Key             =   "Date"
+         Text            =   "Date"
+         Object.Width           =   2117
+      EndProperty
+      BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   3
+         Key             =   "Language"
+         Text            =   "Language"
+         Object.Width           =   2646
+      EndProperty
+      BeginProperty ColumnHeader(5) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   4
+         Key             =   "Level"
+         Text            =   "Level"
+         Object.Width           =   2646
+      EndProperty
+      BeginProperty ColumnHeader(6) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   5
+         Key             =   "Code"
+         Text            =   "Code Compatibility"
+         Object.Width           =   2646
+      EndProperty
+      BeginProperty ColumnHeader(7) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   6
+         Key             =   "Views"
+         Text            =   "Views"
+         Object.Width           =   1323
+      EndProperty
+      BeginProperty ColumnHeader(8) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   7
+         Key             =   "Rate"
+         Text            =   "Ratting"
+         Object.Width           =   1323
+      EndProperty
+   End
+   Begin MSWinsockLib.Winsock ws1 
+      Left            =   5640
+      Top             =   960
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   393216
+   End
+   Begin VB.Frame fraSearch 
+      Caption         =   "Search"
+      Height          =   735
+      Left            =   0
+      TabIndex        =   0
+      Top             =   120
+      Width           =   7935
+      Begin VB.ComboBox cmbWorld 
+         Height          =   315
+         Left            =   1200
+         Style           =   2  'Dropdown List
+         TabIndex        =   7
+         Top             =   0
+         Width           =   2895
+      End
+      Begin VB.PictureBox picPageControl 
+         BorderStyle     =   0  'None
+         Height          =   495
+         Left            =   4800
+         ScaleHeight     =   33
+         ScaleMode       =   3  'Pixel
+         ScaleWidth      =   201
+         TabIndex        =   5
+         Top             =   160
+         Width           =   3015
+         Begin VB.Image cmdCodeMonth 
+            Height          =   360
+            Left            =   2460
+            MouseIcon       =   "frmMain.dox":8FEF
+            MousePointer    =   99  'Custom
+            Picture         =   "frmMain.dox":98B9
+            ToolTipText     =   "Code Of The Month"
+            Top             =   60
+            Width           =   360
+         End
+         Begin VB.Line Line2 
+            BorderColor     =   &H80000014&
+            Index           =   1
+            X1              =   121
+            X2              =   121
+            Y1              =   2
+            Y2              =   28
+         End
+         Begin VB.Line Line1 
+            BorderColor     =   &H80000010&
+            Index           =   1
+            X1              =   120
+            X2              =   120
+            Y1              =   28
+            Y2              =   2
+         End
+         Begin VB.Line Line2 
+            BorderColor     =   &H80000014&
+            Index           =   0
+            X1              =   57
+            X2              =   57
+            Y1              =   2
+            Y2              =   28
+         End
+         Begin VB.Line Line1 
+            BorderColor     =   &H80000010&
+            Index           =   0
+            X1              =   56
+            X2              =   56
+            Y1              =   28
+            Y2              =   2
+         End
+         Begin VB.Image cmdStop 
+            Enabled         =   0   'False
+            Height          =   330
+            Left            =   1320
+            MouseIcon       =   "frmMain.dox":9CC1
+            MousePointer    =   99  'Custom
+            Picture         =   "frmMain.dox":A58B
+            ToolTipText     =   "Stop"
+            Top             =   60
+            Width           =   315
+         End
+         Begin VB.Image cmdRefresh 
+            Height          =   390
+            Left            =   960
+            MouseIcon       =   "frmMain.dox":A990
+            MousePointer    =   99  'Custom
+            Picture         =   "frmMain.dox":B25A
+            ToolTipText     =   "Refresh"
+            Top             =   30
+            Width           =   330
+         End
+         Begin VB.Image cmdGetNewest 
+            Height          =   435
+            Left            =   1920
+            MouseIcon       =   "frmMain.dox":B772
+            MousePointer    =   99  'Custom
+            Picture         =   "frmMain.dox":C03C
+            ToolTipText     =   "Get Newest Submissions Only"
+            Top             =   0
+            Width           =   495
+         End
+         Begin VB.Image cmdNextPage 
+            Enabled         =   0   'False
+            Height          =   435
+            Left            =   390
+            MouseIcon       =   "frmMain.dox":C4F8
+            MousePointer    =   99  'Custom
+            Picture         =   "frmMain.dox":CDC2
+            ToolTipText     =   "Next Page"
+            Top             =   0
+            Width           =   405
+         End
+         Begin VB.Image cmdBackPage 
+            Enabled         =   0   'False
+            Height          =   435
+            Left            =   0
+            MouseIcon       =   "frmMain.dox":D31A
+            MousePointer    =   99  'Custom
+            Picture         =   "frmMain.dox":DBE4
+            ToolTipText     =   "Previous Page"
+            Top             =   0
+            Width           =   405
+         End
+      End
+      Begin VB.TextBox txtSearch 
+         Appearance      =   0  'Flat
+         Height          =   285
+         Left            =   720
+         TabIndex        =   1
+         Top             =   360
+         Width           =   3015
+      End
+      Begin VB.Label Label3 
+         Caption         =   "Select World:"
+         Height          =   255
+         Left            =   120
+         TabIndex        =   6
+         Top             =   0
+         Width           =   1095
+      End
+      Begin VB.Image cmdSearch 
+         Height          =   480
+         Left            =   4200
+         MouseIcon       =   "frmMain.dox":E136
+         MousePointer    =   99  'Custom
+         Picture         =   "frmMain.dox":EA00
+         ToolTipText     =   "Search"
+         Top             =   210
+         Width           =   495
+      End
+      Begin VB.Label Label1 
+         Caption         =   "Search:"
+         Height          =   255
+         Left            =   120
+         TabIndex        =   2
+         Top             =   360
+         Width           =   735
+      End
+   End
+   Begin MSWinsockLib.Winsock wsSearch 
+      Left            =   6120
+      Top             =   960
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   393216
+   End
+   Begin VB.Menu mnuMain 
+      Caption         =   "mnuMain"
+      Begin VB.Menu mnuOpen 
+         Caption         =   "&Open In Browser"
+      End
+      Begin VB.Menu sep 
+         Caption         =   "-"
+      End
+      Begin VB.Menu mnuCD 
+         Caption         =   "Visit Camalot Designs"
+      End
+   End
+End
+Attribute VB_Name = "udMain"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+Option Explicit
+Dim lngWorld As Long
+Private m_strHttpResponse As String
+Private m_bGotResponse As Boolean
+
+Private intCurrentPage As Integer
+
+Dim strPage As String
+Dim intTimeOut_Current As Integer
+Dim PSCInfo() As PSCData
+
+Public Connect As Connect
+Private Sub cmdAdvanced_Click()
+  '  On Error Resume Next
+  '  If cmdAdvanced.Caption = "Advanced >>" Then
+  '    fraSearch.Visible = True
+  '    cmdAdvanced.Caption = "<< Simple"
+  '    cmdGetList.Enabled = False
+  '    If cmbWorld.ListIndex = 0 Then cmbWorld.ListIndex = 1
+  '    UserDocument_Resize
+  '  Else
+  '    fraSearch.Visible = False
+  '    cmdAdvanced.Caption = "Advanced >>"
+  '    cmdGetList.Enabled = True
+  '    UserDocument_Resize
+  '  End If
+End Sub
+
+Private Sub cmdAbout_Click()
+  frmAbout.Show vbModal, Me
+End Sub
+
+Private Sub cmdBackPage_Click()
+  intCurrentPage = intCurrentPage - 1
+
+  'lblCurrentPage = intCurrentPage
+  If intCurrentPage = 1 Then
+    cmdBackPage.Enabled = False
+  Else
+    cmdBackPage.Enabled = True
+  End If
+
+  lvTopCode.Visible = False
+  lvData.Visible = True
+  cmdDownloadZip.Visible = False
+  cmdScreenShot.Visible = False
+  cmdViewDesc.Visible = False
+  cmdLaunchIE.Visible = False
+  cmdViewCode.Visible = False
+
+  cmdStop.Enabled = True
+  booStopSearch = False
+
+  strPage = SEARCH_PAGE
+  strPage = Replace(strPage, "XX3RDPARTYXX", str3rdParty)
+  strPage = Replace(strPage, "XXSORTXX", strSort)
+  strPage = Replace(strPage, "XXMAXPERPAGEXX", CStr(intMaxPerPage))
+  'Set the search String, Replace any spaces with "+"
+  strPage = Replace(strPage, "XXSEARCHXX", Replace$(txtSearch, " ", "+"))
+  strPage = Replace(strPage, "XXZIPXX", strZipFiles)
+  strPage = Replace(strPage, "XXTEXTCODEXX", strCodeText)
+  strPage = Replace(strPage, "XXARTICLEXX", strArticles)
+  strPage = Replace(strPage, "XXDIFFXX", strDiffLevel)
+  strPage = Replace(strPage, "XXPAGEXX", CStr(intCurrentPage))
+  strPage = strPage & cmbWorld.ListIndex
+
+  DoSearch strPage
+End Sub
+
+Private Sub cmdGetList_Click()
+
+End Sub
+
+Private Sub cmdCodeMonth_Click()
+  On Error GoTo error_handler
+  If cmbWorld.ListIndex = 0 Or cmbWorld.List(cmbWorld.ListIndex) = "" Then
+    Status1.Panels( _
+        1).Text = "PSC Explorer v" & App.Major & "." & App.Minor & "." & _
+        App.Revision
+    MsgBox "Invalid Planet Source Code World Selected for this type of search.", _
+        vbApplicationModal + vbDefaultButton1 + vbInformation, "Error"
+    tmrTimeOut.Enabled = False
+    GoTo ERROR_NOMSG
+  End If
+
+  lvTopCode.ListItems.Clear
+  lvTopCode.Visible = True
+  lvData.Visible = False
+  cmdDownloadZip.Visible = False
+  cmdScreenShot.Visible = False
+  cmdViewDesc.Visible = False
+  cmdLaunchIE.Visible = False
+  cmdViewCode.Visible = False
+  cmdStop.Enabled = True
+  booStopSearch = False
+  tmrTimeOut.Enabled = True
+  m_bGotResponse = False
+  lvData.ListItems.Clear
+  cmdGetNewest.Enabled = False
+  cmbWorld.Enabled = False
+  cmdScreenShot.Visible = False
+  Screen.MousePointer = vbHourglass
+
+
+
+  m_strHttpResponse = ""
+
+  wsCodeMonth.Close
+  wsCodeMonth.LocalPort = 0
+  If bUseProxy Then
+    If Len(intProxyPort) > 0 And Len(strProxyServer) > 0 Then
+      Status1.Panels(1).Text = "Connecting to PSC..."
+      wsCodeMonth.Connect strProxyServer, intProxyPort
+    Else
+      MsgBox "Proxy Server or Port is Empty.", _
+          vbApplicationModal + vbCritical + vbDefaultButton1, "Error"
+      Screen.MousePointer = vbDefault
+      cmdGetNewest.Enabled = True
+      cmbWorld.Enabled = True
+      tmrTimeOut.Enabled = False
+      GoTo EXIT_LABEL
+    End If
+  Else
+    Status1.Panels(1).Text = "Connecting to PSC..."
+    wsCodeMonth.Connect URL, 80
+  End If
+EXIT_LABEL:
+  Exit Sub
+error_handler:
+  Status1.Panels(1).Text = "Error Connecting to PSC."
+  MsgBox "Error was occurred." & vbCrLf & "Error #: " & Err.Number & vbCrLf & _
+      "Description: " & Err.Description, vbExclamation
+  cmdStop.Enabled = False
+  tmrTimeOut.Enabled = False
+  GoTo EXIT_LABEL
+  'End If
+ERROR_NOMSG:
+  m_bGotResponse = True
+  lvData.ListItems.Clear
+  cmdScreenShot.Visible = False
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  Screen.MousePointer = vbDefault
+  cmdStop.Enabled = False
+  tmrTimeOut.Enabled = False
+
+End Sub
+
+Private Sub cmdDownloadZip_Click()
+  'ZIP_PAGE
+  Dim Item As Integer
+  Item = lvData.SelectedItem.Index - 1
+  'If there is an item selected the goto the PSC ZIP File for that item and download it
+  If Item >= 0 Then _
+      Load frmConfirm
+  frmConfirm.TheURL = URL & Replace$(Replace$(Replace$(ZIP_PAGE, "XXCODEIDXX", _
+      PSCInfo(Item).PSC_ID), "XXWORLDIDXX", PSCInfo(Item).PSC_WORLD), _
+      "XXZIPACCESSCODEXX", PSCInfo(Item).PSC_ZIPACCESSCODE)
+  frmConfirm.Show vbModal, Me
+End Sub
+
+Private Sub cmdLaunchIE_Click()
+  On Error Resume Next
+  Dim Item As Integer
+  If lvData.Visible Then
+    Item = lvData.SelectedItem.Index - 1
+  Else
+    Item = lvTopCode.SelectedItem.Index - 1
+  End If
+  'If there is an item selected the goto the PSC Page for that item
+  If Item >= 0 Then LaunchURL URL & Replace$(Replace$(CODE_PAGE, "XXCODEIDXX", _
+      PSCInfo(Item).PSC_ID), "XXLNGWIDXX", PSCInfo(Item).PSC_WORLD)
+End Sub
+
+Private Sub cmdNextPage_Click()
+  intCurrentPage = intCurrentPage + 1
+  'lblCurrentPage = intCurrentPage
+  If intCurrentPage = 1 Then
+    cmdBackPage.Enabled = False
+  Else
+    cmdBackPage.Enabled = True
+  End If
+
+  lvTopCode.Visible = False
+  lvData.Visible = True
+  cmdDownloadZip.Visible = False
+  cmdScreenShot.Visible = False
+  cmdViewDesc.Visible = False
+  cmdLaunchIE.Visible = False
+  cmdViewCode.Visible = False
+
+  cmdStop.Enabled = True
+  booStopSearch = False
+
+  strPage = SEARCH_PAGE
+  strPage = Replace(strPage, "XX3RDPARTYXX", str3rdParty)
+  strPage = Replace(strPage, "XXSORTXX", strSort)
+  strPage = Replace(strPage, "XXMAXPERPAGEXX", CStr(intMaxPerPage))
+  'Set the search String, Replace any spaces with "+"
+  strPage = Replace(strPage, "XXSEARCHXX", Replace$(txtSearch, " ", "+"))
+  strPage = Replace(strPage, "XXZIPXX", strZipFiles)
+  strPage = Replace(strPage, "XXTEXTCODEXX", strCodeText)
+  strPage = Replace(strPage, "XXARTICLEXX", strArticles)
+  strPage = Replace(strPage, "XXDIFFXX", strDiffLevel)
+  strPage = Replace(strPage, "XXPAGEXX", CStr(intCurrentPage))
+  strPage = strPage & cmbWorld.ListIndex
+
+  DoSearch strPage
+End Sub
+
+Private Sub cmdOptions_Click()
+  frmOptions.Show vbModal, Me
+End Sub
+
+Private Sub cmdPSC_Click()
+  LaunchURL ("http://www.planetsourcecode.com/")
+End Sub
+
+Private Sub cmdRefresh_Click()
+  If strPage <> "" Then
+    cmdStop.Enabled = True
+    booStopSearch = False
+
+    lvTopCode.Visible = False
+    lvData.Visible = True
+    cmdDownloadZip.Visible = False
+    cmdScreenShot.Visible = False
+    cmdViewDesc.Visible = False
+    cmdLaunchIE.Visible = False
+    cmdViewCode.Visible = False
+
+    DoSearch strPage
+  End If
+End Sub
+
+Private Sub cmdScreenShot_Click()
+  Dim bSuccess As Boolean
+
+  Screen.MousePointer = vbHourglass
+  With frmScreenShot
+    .ImagePath = App.Path & "\" & PSCInfo(lvData.SelectedItem.Index - 1).PSC_IMG
+    bSuccess = DownloadToFile(IMG_URL & PSCInfo( _
+        lvData.SelectedItem.Index - 1).PSC_IMG, .ImagePath)
+    If bSuccess Then
+      Load frmScreenShot
+      .Caption = PSCInfo( _
+          lvData.SelectedItem.Index - 1).PSC_TITLE & " by " & PSCInfo( _
+          lvData.SelectedItem.Index - 1).PSC_AUTHOR
+      .imgSShot.Picture = LoadPicture(.ImagePath)
+      .imgSShot.Move 0, 0
+      .Width = .imgSShot.Width + 100
+      .Height = .imgSShot.Height + 400
+      Screen.MousePointer = vbDefault
+      .Show vbModal, Me
+    Else
+      Screen.MousePointer = vbDefault
+      MsgBox "Could not download image.", _
+          vbApplicationModal + vbCritical + vbDefaultButton1, "Error"
+    End If
+  End With
+
+End Sub
+
+
+Private Sub DoSearch(strSearchPage As String)
+  m_bGotResponse = False
+  lvData.ListItems.Clear
+  cmdDownloadZip.Visible = False
+  cmdSearch.Enabled = False
+  cmbWorld.Enabled = False
+  cmdScreenShot.Visible = False
+  cmdNextPage.Enabled = False
+  cmdBackPage.Enabled = False
+  Screen.MousePointer = vbHourglass
+  tmrTimeOut.Enabled = True
+  If cmbWorld.ListIndex = 0 Or cmbWorld.List(cmbWorld.ListIndex) = "" Then
+    Status1.Panels( _
+        1).Text = "PSC Explorer v" & App.Major & "." & App.Minor & "." & _
+        App.Revision
+    MsgBox "Invalid Planet Source Code World Selected for this type of search.", _
+        vbApplicationModal + vbDefaultButton1 + vbInformation, "Error"
+    tmrTimeOut.Enabled = False
+    GoTo ERROR_NOMSG
+  End If
+
+  m_strHttpResponse = ""
+
+
+  wsSearch.Close
+  wsSearch.LocalPort = 0
+  If bUseProxy Then
+    If Len(intProxyPort) > 0 And Len(strProxyServer) > 0 Then
+      Status1.Panels(1).Text = "Connecting to PSC..."
+      wsSearch.Connect strProxyServer, intProxyPort
+    Else
+      MsgBox "Proxy Server or Port is Empty.", _
+          vbApplicationModal + vbCritical + vbDefaultButton1, "Error"
+      Screen.MousePointer = vbDefault
+      cmdSearch.Enabled = True
+      cmbWorld.Enabled = True
+      tmrTimeOut.Enabled = False
+      GoTo EXIT_LABEL
+    End If
+  Else
+    Status1.Panels(1).Text = "Connecting to PSC..."
+    wsSearch.Connect URL, 80
+  End If
+EXIT_LABEL:
+  Exit Sub
+error_handler:
+  '
+  Status1.Panels(1).Text = "Error Attempting to connect."
+  MsgBox "Error was occurred." & vbCrLf & "Error #: " & Err.Number & vbCrLf & _
+      "Description: " & Err.Description, vbExclamation
+  tmrTimeOut.Enabled = False
+  GoTo EXIT_LABEL
+
+ERROR_NOMSG:
+  cmdScreenShot.Visible = False
+  m_bGotResponse = True
+  lvData.ListItems.Clear
+  cmdSearch.Enabled = True
+  cmbWorld.Enabled = True
+  Screen.MousePointer = vbDefault
+  tmrTimeOut.Enabled = False
+End Sub
+
+
+Private Sub cmdSearch_Click()
+  If txtSearch = "" Then Exit Sub
+  lvTopCode.Visible = False
+  lvData.Visible = True
+  cmdDownloadZip.Visible = False
+  cmdScreenShot.Visible = False
+  cmdViewDesc.Visible = False
+  cmdLaunchIE.Visible = False
+  cmdViewCode.Visible = False
+
+  intCurrentPage = 1
+  'lblCurrentPage = intCurrentPage
+  strPage = SEARCH_PAGE
+  strPage = Replace(strPage, "XX3RDPARTYXX", str3rdParty)
+  strPage = Replace(strPage, "XXSORTXX", strSort)
+  strPage = Replace(strPage, "XXMAXPERPAGEXX", CStr(intMaxPerPage))
+  'Set the search String, Replace any spaces with "+"
+  strPage = Replace(strPage, "XXSEARCHXX", Replace$(txtSearch, " ", "+"))
+  strPage = Replace(strPage, "XXZIPXX", strZipFiles)
+  strPage = Replace(strPage, "XXTEXTCODEXX", strCodeText)
+  strPage = Replace(strPage, "XXARTICLEXX", strArticles)
+  strPage = Replace(strPage, "XXDIFFXX", strDiffLevel)
+  strPage = Replace(strPage, "XXPAGEXX", CStr(intCurrentPage))
+  strPage = strPage & cmbWorld.ListIndex
+
+  Status1.Panels(1).Text = "Searching..."
+  cmdStop.Enabled = True
+  booStopSearch = False
+  DoSearch strPage
+
+End Sub
+
+Private Sub cmdStop_Click()
+  booStopSearch = True
+  cmdStop.Enabled = False
+End Sub
+
+Private Sub cmdGetNewest_Click()
+  Dim intPort As Integer
+
+  strPage = ""
+
+  lvTopCode.Visible = False
+  lvData.Visible = True
+  cmdDownloadZip.Visible = False
+  cmdScreenShot.Visible = False
+  cmdViewDesc.Visible = False
+  cmdLaunchIE.Visible = False
+  cmdViewCode.Visible = False
+  cmdStop.Enabled = True
+  booStopSearch = False
+  tmrTimeOut.Enabled = True
+  m_bGotResponse = False
+  lvData.ListItems.Clear
+  cmdGetNewest.Enabled = False
+  cmbWorld.Enabled = False
+  cmdScreenShot.Visible = False
+  Screen.MousePointer = vbHourglass
+  If cmbWorld.List( _
+      cmbWorld.ListIndex) = "" Then tmrTimeOut.Enabled = False: GoTo ERROR_NOMSG
+  If cmbWorld.ListIndex = 0 Then
+    lngWorld = -1
+  Else
+    lngWorld = cmbWorld.ListIndex
+  End If
+
+  m_strHttpResponse = ""
+
+  ws1.Close
+  ws1.LocalPort = 0
+  If bUseProxy Then
+    If Len(intProxyPort) > 0 And Len(strProxyServer) > 0 Then
+      Status1.Panels(1).Text = "Connecting to PSC..."
+      ws1.Connect strProxyServer, intProxyPort
+    Else
+      MsgBox "Proxy Server or Port is Empty.", _
+          vbApplicationModal + vbCritical + vbDefaultButton1, "Error"
+      Screen.MousePointer = vbDefault
+      cmdGetNewest.Enabled = True
+      cmbWorld.Enabled = True
+      tmrTimeOut.Enabled = False
+      GoTo EXIT_LABEL
+    End If
+  Else
+    Status1.Panels(1).Text = "Connecting to PSC..."
+    ws1.Connect URL, 80
+  End If
+EXIT_LABEL:
+  Exit Sub
+error_handler:
+  Status1.Panels(1).Text = "Error Connecting to PSC."
+  MsgBox "Error was occurred." & vbCrLf & "Error #: " & Err.Number & vbCrLf & _
+      "Description: " & Err.Description, vbExclamation
+  cmdStop.Enabled = False
+  tmrTimeOut.Enabled = False
+  GoTo EXIT_LABEL
+  'End If
+ERROR_NOMSG:
+  m_bGotResponse = True
+  lvData.ListItems.Clear
+  cmdScreenShot.Visible = False
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  Screen.MousePointer = vbDefault
+  cmdStop.Enabled = False
+  tmrTimeOut.Enabled = False
+End Sub
+
+
+
+Private Sub cmdViewCode_Click()
+  'CODETEXT_PAGE
+  Dim Ret As Long
+  Dim Item As Integer
+  Item = lvData.SelectedItem.Index - 1
+  'If there is an item selected then goto the PSC Page for that item
+  If Item >= 0 Then
+    Screen.MousePointer = vbHourglass
+    Status1.Panels(1).Text = "Loading Copy and Paste Code..."
+    'Download the Copy & Paste version of the code and save it to a temp file
+    Ret = DownloadToFile("http://" & URL & Replace$(Replace$(CODETEXT_PAGE, "XXCODEIDXX", _
+        PSCInfo(Item).PSC_ID), "XXWORLDIDXX", PSCInfo(Item).PSC_WORLD), App.Path & "\" & PSCInfo(Item).PSC_ID & ".txt")
+    If Ret Then
+      'The download was succeddful
+      'Load the form to display the code
+      Load frmCode
+      'Set teh files path
+      frmCode.FilePath = App.Path & "\" & PSCInfo(Item).PSC_ID & ".txt"
+      'Set the caption
+      frmCode.Caption = PSCInfo(Item).PSC_TITLE & " - Copy and Paste Code"
+      'Show the form
+      frmCode.Show
+
+      Screen.MousePointer = vbDefault
+      Status1.Panels(1).Text = "PSC Explorer v" & App.Major & "." & App.Minor & "." & App.Revision
+    Else
+      'The download failed
+      MsgBox "Error Loading Copy and Paste Code From Planet Source Code.", vbApplicationModal + vbDefaultButton1 + vbExclamation, "Error"
+      Screen.MousePointer = vbDefault
+      Status1.Panels(1).Text = "PSC Explorer v" & App.Major & "." & App.Minor & "." & App.Revision
+    End If
+  End If
+End Sub
+
+Private Sub cmdViewDesc_Click()
+  'This will connect to PSC and call a function to Parse the
+  'Data from the code page to get the description.
+  'I use a diffeent Winsock control for easier readability of
+  'the code. Mainly so I know what each winSock controls does
+  On Error GoTo error_handler
+  Dim intPort As Integer
+  Dim Item As Integer
+
+  If lvData.Visible Then
+    Item = lvData.SelectedItem.Index - 1
+  Else
+    Item = lvTopCode.SelectedItem.Index - 1
+  End If
+  'Disable bttn so it cant be pushed again
+  If lvData.Visible Then
+    lvData.Enabled = False
+  End If
+  cmdViewDesc.Enabled = False
+  'Enable the stop button
+  cmdStop.Enabled = True
+  booStopSearch = False
+  'Enable the Time Out Timer
+  tmrTimeOut.Enabled = True
+  'No Response Yet.
+  m_bGotResponse = False
+
+  Screen.MousePointer = vbHourglass
+  'If nothing was selected then exit
+  If lvData.Visible Then
+    If lvData.SelectedItem.Index <= 0 Then
+      tmrTimeOut.Enabled = False: GoTo ERROR_NOMSG
+    End If
+  Else
+    If lvTopCode.SelectedItem.Index <= 0 Then
+      tmrTimeOut.Enabled = False: GoTo ERROR_NOMSG
+    End If
+  End If
+  If PSCInfo(Item).PSC_WORLD = "" Then
+    GoTo ERROR_NOMSG
+  Else
+    'set the world
+    'lngWorld = CLng(PSCInfo(lvData.SelectedItem.Index - 1).PSC_WORLD)
+  End If
+
+  'Clear the respone
+  m_strHttpResponse = ""
+
+  'Close any connection
+  wsDesc.Close
+  'Set the Local Port
+  wsDesc.LocalPort = 0
+  'If using a proxy server
+  If bUseProxy Then
+    'Make sure the proxy server data is set
+    If Len(intProxyPort) > 0 And Len(strProxyServer) > 0 Then
+      'conncect to PSC through Proxy Server
+      Status1.Panels(1).Text = "Connecting to PSC..."
+      wsDesc.Connect strProxyServer, intProxyPort
+    Else
+      'Proxy Server Data incomplete
+      MsgBox "Proxy Server or Port is Empty.", _
+          vbApplicationModal + vbCritical + vbDefaultButton1, "Error"
+      Screen.MousePointer = vbDefault
+
+      tmrTimeOut.Enabled = False
+      'Exit
+      GoTo EXIT_LABEL
+    End If
+  Else
+    Status1.Panels(1).Text = "Connecting to PSC..."
+    'Connect To PSC
+    wsDesc.Connect URL, 80
+  End If
+EXIT_LABEL:
+  Exit Sub
+error_handler:
+  'The error handler
+  Status1.Panels(1).Text = "Error Connecting to PSC."
+  MsgBox "Error occurred." & vbCrLf & "Error #: " & Err.Number & vbCrLf & _
+      "Description: " & Err.Description & "--" & Erl, vbExclamation
+  cmdStop.Enabled = False
+  tmrTimeOut.Enabled = False
+  lvData.Enabled = False
+  GoTo EXIT_LABEL
+  'End If
+ERROR_NOMSG:
+  'Reset the buttons and such
+  lvData.Enabled = True
+  m_bGotResponse = True
+  cmbWorld.Enabled = True
+  Screen.MousePointer = vbDefault
+  cmdStop.Enabled = False
+  tmrTimeOut.Enabled = False
+
+End Sub
+
+
+Private Sub lvData_DblClick()
+  On Error Resume Next
+  Dim Item As Integer
+  Item = lvData.SelectedItem.Index - 1
+  'If there is an item selected the goto the PSC Page for that item
+  If Item >= 0 Then LaunchURL URL & Replace$(Replace$(CODE_PAGE, "XXCODEIDXX", _
+      PSCInfo(Item).PSC_ID), "XXLNGWIDXX", PSCInfo(Item).PSC_WORLD)
+
+End Sub
+
+Private Sub lvData_ItemClick(ByVal Item As MSComctlLib.ListItem)
+  'On Error GoTo oops
+  If Item.Index > 0 Then
+    cmdLaunchIE.Visible = True
+    If PSCInfo(Item.Index - 1).PSC_TYPE <> "Article" Then
+      cmdViewDesc.Visible = True
+      cmdViewDesc.Enabled = True
+    Else
+      cmdViewDesc.Visible = False
+      cmdViewDesc.Enabled = False
+    End If
+  Else
+    cmdLaunchIE.Visible = False
+    cmdViewDesc.Visible = False
+    cmdViewDesc.Enabled = True
+  End If
+  'cmdViewCode
+  If PSCInfo(Item.Index - 1).PSC_TYPE = "Code" Then
+    cmdViewCode.Visible = True
+  Else
+    cmdViewCode.Visible = False
+  End If
+  If PSCInfo(Item.Index - 1).PSC_TYPE = "Zip" Then
+    cmdDownloadZip.Visible = True
+  Else
+    cmdDownloadZip.Visible = False
+  End If
+
+  If PSCInfo(Item.Index - 1).PSC_IMG <> "" Or PSCInfo( _
+      Item.Index - 1).PSC_IMG = "IMAGE" Then
+    cmdScreenShot.Visible = True
+  Else
+    cmdScreenShot.Visible = False
+  End If
+End Sub
+
+Private Sub lvData_MouseUp(Button As Integer, Shift As Integer, x As Single, _
+  y As Single)
+  If Button = 2 Then
+    PopupMenu mnuMain
+  End If
+End Sub
+
+Private Sub lvTopCode_DblClick()
+  On Error Resume Next
+  Dim Item As Integer
+  Item = lvData.SelectedItem.Index - 1
+  'If there is an item selected the goto the PSC Page for that item
+  If Item >= 0 Then LaunchURL URL & Replace$(Replace$(CODE_PAGE, "XXCODEIDXX", _
+      PSCInfo(Item).PSC_ID), "XXLNGWIDXX", PSCInfo(Item).PSC_WORLD)
+End Sub
+
+Private Sub lvTopCode_ItemClick(ByVal Item As MSComctlLib.ListItem)
+  On Error Resume Next
+  cmdLaunchIE.Visible = False
+  cmdViewDesc.Visible = False
+  cmdDownloadZip.Visible = False
+  cmdScreenShot.Visible = False
+  cmdViewCode.Visible = False
+  cmdViewDesc.Enabled = True
+
+  If Item.Index > 0 Then
+    cmdLaunchIE.Visible = True
+    If PSCInfo(Item.Index - 1).PSC_TYPE <> "Article" Then
+      cmdViewDesc.Visible = True
+      cmdViewDesc.Enabled = True
+    Else
+      cmdViewDesc.Visible = False
+      cmdViewDesc.Enabled = False
+    End If
+  Else
+    cmdLaunchIE.Visible = False
+    cmdViewDesc.Visible = False
+    cmdDownloadZip.Visible = False
+    cmdScreenShot.Visible = False
+    cmdViewCode.Visible = False
+    cmdViewDesc.Enabled = True
+  End If
+End Sub
+
+Private Sub mnuCD_Click()
+  'Goto My Website :)
+  LaunchURL ("http://camalotdesigns.com")
+End Sub
+
+Private Sub mnuOpen_Click()
+  lvData_DblClick
+End Sub
+
+Private Sub tmrTimeOut_Timer()
+  If intTimeOut_Current = intTimeOut Then
+    Status1.Panels(1).Text = "Search Timed Out."
+    MsgBox "Your search timed out." & vbCrLf & _
+        "Try increasing the TimeOut delay." & vbCrLf & _
+        "If that does not help, the site might be down.", _
+        vbApplicationModal + vbCritical + vbDefaultButton1, "Time Out."
+    ws1.Close
+    wsSearch.Close
+    Screen.MousePointer = vbDefault
+    'If cmdAdvanced.Caption = "<< Simple" Then
+    cmdSearch.Enabled = True
+    'Else
+    cmdGetNewest.Enabled = True
+    'End If
+    cmbWorld.Enabled = True
+    tmrTimeOut.Enabled = False
+    intTimeOut_Current = 0
+  Else
+    intTimeOut_Current = intTimeOut_Current + 1
+  End If
+End Sub
+
+Private Sub txtSearch_Change()
+  If txtSearch = "" Then cmdSearch.Enabled = False
+  If txtSearch <> "" Then cmdSearch.Enabled = True
+End Sub
+
+Private Sub UserDocument_Initialize()
+  With cmbWorld
+    .AddItem "Newest (All Languages)"
+    .AddItem "Visual Basic"
+    .AddItem "Java / Javascript"
+    .AddItem "C / C++"
+    .AddItem "ASP / VBScript"
+    .AddItem "SQL"
+    .AddItem "Perl"
+    .AddItem "Delphi"
+    .AddItem "PHP"
+    .AddItem "Cold Fusion"
+    .AddItem ".NET"
+    .AddItem ""  'Why is world 11 Nothing?
+    .AddItem ""  'Why is world 12 Nothing?
+    .AddItem "LISP"
+    .ListIndex = 0
+  End With
+
+
+  'Default Settings for the search
+  intCurrentPage = 1
+  strDiffLevel = "1%2C+2%2C+3%2C+4"
+  intMaxPerPage = 50
+  strZipFiles = "on"
+  strCodeText = "on"
+  strArticles = "on"
+  str3rdParty = "on"
+  strSort = "DateDescending"
+
+  'Time out and Use Proxy Defaults
+  intTimeOut = 30
+  bUseProxy = False
+  'Set the status panel to the default
+  Status1.Panels( _
+      1).Text = "PSC Explorer v" & App.Major & "." & App.Minor & "." & App.Revision
+End Sub
+
+Private Sub UserDocument_Resize()
+  On Error Resume Next
+  If Width <= 8025 Then Width = 8025
+  If Height <= 4020 Then Height = 4020
+  
+  Status1.Panels(1).AutoSize = sbrSpring
+  fraSearch.Move 2, 4, ScaleWidth - 4, fraSearch.Height
+  picTools.Move 2, Status1.Top - picTools.Height - 2, ScaleWidth - 4, _
+      picTools.Height
+
+  lvData.Move 2, fraSearch.Top + fraSearch.Height + 2, ScaleWidth - 4, _
+      picTools.Top - lvData.Top - 2
+  lvTopCode.Move 2, fraSearch.Top + fraSearch.Height + 2, ScaleWidth - 4, _
+      picTools.Top - lvTopCode.Top - 2
+  cmdOptions.Move picTools.ScaleWidth - cmdOptions.Width - 2
+  cmdPSC.Move cmdOptions.Left - cmdPSC.Width - 2, 2
+  cmdAbout.Move cmdPSC.Left - cmdAbout.Width - 2, 2
+End Sub
+
+Private Sub UserDocument_Show()
+  UserDocument_Resize
+End Sub
+
+Private Sub ws1_Close()
+
+  Dim x As Long
+  On Error GoTo oops
+
+  If booStopSearch Then
+    Status1.Panels(1).Text = "Search Aborted by User."
+    m_bGotResponse = True
+    GoTo EXIT_LABEL
+  End If
+  m_strHttpResponse = Mid$(m_strHttpResponse, InStr(1, m_strHttpResponse, _
+      vbCrLf & vbCrLf) + 4)
+  '
+  If Not m_bGotResponse Then
+    'Parse the Results
+    ParseData m_strHttpResponse, PSCInfo()
+    'Clear the List
+    lvData.ListItems.Clear
+    For x = 0 To UBound(PSCInfo)
+      'Add the Data to the list
+      lvData.ListItems.Add , "ItemID=" & PSCInfo(x).PSC_ID, _
+          PSCInfo(x).PSC_TITLE, 3, 3
+      lvData.ListItems(x + 1).ToolTipText = PSCInfo(x).PSC_DESCRIPTION
+      lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , "Author" & x, _
+          PSCInfo(x).PSC_AUTHOR
+      lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , "Date" & x, _
+          PSCInfo(x).PSC_DATE
+      lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , "World" & x, _
+          cmbWorld.List(CInt(PSCInfo(x).PSC_WORLD))
+      lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , "Level" & x, _
+          "N/A"
+      lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , _
+          "CodeCompat" & x, "N/A"
+      lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , "Views" & x, _
+          "N/A"
+      lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , "Rating" & x, _
+          "N/A"
+    Next x
+    'Set the status panel to show how many results we are displaying out of how many
+    Status1.Panels( _
+        1).Text = "Displaying " & lvData.ListItems.Count & " of " & _
+        lvData.ListItems.Count
+    'We got a response, with out setting this the winsock control will continue to call its close method
+    m_bGotResponse = True
+    lvData.Enabled = True
+  End If
+EXIT_LABEL:
+  'enable the controls for another search
+  cmdGetNewest.Enabled = True
+  cmdSearch.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Exit Sub
+oops:
+
+  If Err.Number = 9 Then
+    ' The Array was empty
+    m_bGotResponse = True
+    cmdSearch.Enabled = True
+    cmdGetNewest.Enabled = True
+    cmdStop.Enabled = False
+    cmdRefresh.Enabled = True
+    cmbWorld.Enabled = True
+    'Stop the timeout timer
+    tmrTimeOut.Enabled = False
+    'Reset the Timeout
+    intTimeOut_Current = 0
+    Screen.MousePointer = vbDefault
+    Status1.Panels(1).Text = "No Items to Display."
+    MsgBox "No Items where found in that catagory.", _
+        vbApplicationModal + vbDefaultButton1 + vbInformation, "Sorry"
+  Else
+    Status1.Panels(1).Text = "Error Durring Search."
+    Resume Next
+
+    'MsgBox "An Error has occured.", vbApplicationModal + vbCritical + vbDefaultButton1, "Error"
+  End If
+
+End Sub
+
+Private Sub ws1_Connect()
+  Dim strHttpRequest As String
+  If bUseProxy Then
+    strHttpRequest = "GET " & URL & PAGE & lngWorld & " HTTP/1.1" & vbCrLf
+  Else
+    strHttpRequest = "GET " & PAGE & lngWorld & " HTTP/1.1" & vbCrLf
+  End If
+  strHttpRequest = strHttpRequest & _
+      "Host: " & URL & vbCrLf
+  strHttpRequest = strHttpRequest & "Accept: */*" & vbCrLf
+  strHttpRequest = strHttpRequest & "User_Agent: PSC Explorer" & vbCrLf
+  strHttpRequest = strHttpRequest & "Connection: close" & vbCrLf
+  strHttpRequest = strHttpRequest & vbCrLf
+
+  If booStopSearch Then wsSearch.Close: GoTo EXIT_LABEL
+
+  'send the request
+  Status1.Panels(1).Text = "Connected to PSC..."
+  ws1.SendData strHttpRequest
+
+  Exit Sub
+EXIT_LABEL:
+  'enable the controls for another search
+  m_bGotResponse = True
+  cmdSearch.Enabled = True
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Status1.Panels(1).Text = "Search Aborted by User."
+End Sub
+
+Private Sub ws1_DataArrival(ByVal bytesTotal As Long)
+  Dim strData As String
+  If booStopSearch Then ws1.Close: GoTo EXIT_LABEL
+  Status1.Panels(1).Text = "Collecting Data..."
+  ws1.GetData strData
+  m_strHttpResponse = m_strHttpResponse & strData
+  Exit Sub
+EXIT_LABEL:
+  'enable the controls for another search
+  m_bGotResponse = True
+  cmdSearch.Enabled = True
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Status1.Panels(1).Text = "Search Aborted by User."
+End Sub
+
+Private Sub wsCodeMonth_Close()
+  Dim x As Long, pscInf() As PSCData
+
+  'On Error GoTo oops
+
+  If booStopSearch Then
+    Status1.Panels(1).Text = "Search Aborted by User."
+    m_bGotResponse = True
+    GoTo EXIT_LABEL
+  End If
+
+  m_strHttpResponse = Mid(m_strHttpResponse, InStr(1, m_strHttpResponse, _
+      vbCrLf & vbCrLf) + 4)
+  '
+  If Not m_bGotResponse Then
+    If ParseTopCode(m_strHttpResponse, pscInf()) Then
+      PSCInfo() = pscInf()
+      lvTopCode.ListItems.Clear
+      'We got a response, and have all the data
+      For x = 0 To UBound(pscInf)
+        With lvTopCode
+          PSCInfo(x).PSC_WORLD = cmbWorld.ListIndex
+          .ListItems.Add , "ItemID=" & PSCInfo(x).PSC_ID, x + 1, imgList.ListImages("TopCode").Index, imgList.ListImages("TopCode").Index
+          .ListItems(.ListItems.Count).ListSubItems.Add , "Title" & x, PSCInfo(x).PSC_TITLE
+          .ListItems(.ListItems.Count).ListSubItems.Add , "Author" & x, PSCInfo(x).PSC_AUTHOR
+          .ListItems(.ListItems.Count).ListSubItems.Add , "ExecVotes" & x, PSCInfo(x).PSC_EXECELLENTVOTES
+          .ListItems(.ListItems.Count).ListSubItems.Add , "Rating" & x, PSCInfo(x).PSC_TCRATING
+          .ListItems(.ListItems.Count).ListSubItems.Add , "Date" & x, PSCInfo(x).PSC_DATE
+        End With
+      Next x
+
+      Status1.Panels( _
+          1).Text = "PSC Explorer v" & App.Major & "." & App.Minor & "." & App.Revision
+    Else
+      lvTopCode.Visible = False
+      lvData.Visible = True
+      tmrTimeOut.Enabled = False
+      Screen.MousePointer = vbDefault
+      cmdNextPage.Enabled = False
+      cmdBackPage.Enabled = False
+      cmdStop.Enabled = False
+      cmdRefresh.Enabled = True
+      m_bGotResponse = True
+      cmdSearch.Enabled = True
+      cmbWorld.Enabled = True
+      Status1.Panels(1).Text = "No Items to Display."
+      MsgBox "No Items are in the Code of the Month for that catagory.", _
+          vbApplicationModal + vbDefaultButton1 + vbInformation, "Sorry"
+    End If
+  End If
+EXIT_LABEL:
+  'enable the controls for another search
+  lvTopCode.Visible = True
+  lvData.Visible = False
+  cmdSearch.Enabled = True
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Exit Sub
+oops:
+
+  If Err.Number = 9 Then
+    lvTopCode.Visible = False
+    lvData.Visible = True
+    tmrTimeOut.Enabled = False
+    Screen.MousePointer = vbDefault
+    cmdNextPage.Enabled = False
+    cmdBackPage.Enabled = False
+    cmdStop.Enabled = False
+    cmdRefresh.Enabled = True
+    m_bGotResponse = True
+    cmdSearch.Enabled = True
+    cmbWorld.Enabled = True
+    Status1.Panels(1).Text = "No Items to Display."
+    MsgBox "No Items are in the Code of the Month for that catagory.", _
+        vbApplicationModal + vbDefaultButton1 + vbInformation, "Sorry"
+  Else
+    Status1.Panels(1).Text = "Error Durring Search."
+    Resume Next
+    'MsgBox "An Error has occured." & vbCrLf & Err.Description, vbApplicationModal + vbCritical + vbDefaultButton1, "Error"
+  End If
+End Sub
+
+Private Sub wsCodeMonth_Connect()
+  Dim strHttpRequest As String
+  Dim strDescPage As String
+  strDescPage = Replace$(CODEMONTH_PAGE, "XXWORLDIDXX", _
+      cmbWorld.ListIndex)
+
+  If bUseProxy Then
+    strHttpRequest = "GET " & URL & strDescPage & " HTTP/1.1" & vbCrLf
+  Else
+    strHttpRequest = "GET " & strDescPage & " HTTP/1.1" & vbCrLf
+  End If
+  strHttpRequest = strHttpRequest & "Host: " & URL & vbCrLf
+  strHttpRequest = strHttpRequest & "Accept: */*" & vbCrLf
+  strHttpRequest = strHttpRequest & "User_Agent: PSC Explorer" & vbCrLf
+  strHttpRequest = strHttpRequest & "Connection: close" & vbCrLf
+  strHttpRequest = strHttpRequest & vbCrLf
+  'send the request
+  If booStopSearch Then wsCodeMonth.Close: GoTo EXIT_LABEL
+  Status1.Panels(1).Text = "Connected to PSC..."
+  wsCodeMonth.SendData strHttpRequest
+  Exit Sub
+EXIT_LABEL:
+  'enable the controls for another search
+  m_bGotResponse = True
+
+
+  lvTopCode.Visible = False
+  lvData.Visible = True
+  cmdSearch.Enabled = True
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Status1.Panels(1).Text = "Search Aborted by User."
+End Sub
+
+
+Private Sub wsCodeMonth_DataArrival(ByVal bytesTotal As Long)
+  Dim strData As String
+  If booStopSearch Then wsCodeMonth.Close: GoTo EXIT_LABEL
+  Status1.Panels(1).Text = "Collecting Data..."
+  wsCodeMonth.GetData strData
+  m_strHttpResponse = m_strHttpResponse & strData
+  Exit Sub
+EXIT_LABEL:
+  'enable the controls for another search
+  lvData.Visible = True
+  lvTopCode.Visible = False
+  lvData.Enabled = True
+  m_bGotResponse = True
+  cmdSearch.Enabled = True
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Status1.Panels(1).Text = "Search Aborted by User."
+End Sub
+
+Private Sub wsDesc_Close()
+  Dim strTemp As String
+  lvData.Enabled = True
+  
+  Dim Item As Integer
+  
+  
+  Dim x As Long, pscInf() As PSCData
+
+  On Error GoTo oops
+ 
+   'What ListView are we using?
+   'Lets store the Index of the selected item
+   If lvData.Visible Then
+     Item = lvData.SelectedItem.Index - 1
+   Else
+     Item = lvTopCode.SelectedItem.Index - 1
+  End If
+
+  'Did the user stop the action?
+  If booStopSearch Then
+    Status1.Panels(1).Text = "Search Aborted by User."
+    m_bGotResponse = True
+    GoTo EXIT_NOMSG
+  End If
+  
+  'Get only the response, remove the headers
+  m_strHttpResponse = Mid(m_strHttpResponse, InStr(1, m_strHttpResponse, _
+      vbCrLf & vbCrLf) + 4)
+  '
+  If Not m_bGotResponse Then
+    'get the description
+    strTemp = ParseDescription(m_strHttpResponse)
+    If strTemp <> "" Then
+      'We got the description
+      Load frmCode
+      frmCode.Text = strTemp
+      frmCode.Caption = PSCInfo(Item).PSC_TITLE & " - Description"
+      frmCode.Show
+      Status1.Panels(1).Text = "PSC Explorer v" & App.Major & "." & App.Minor & "." & App.Revision
+    Else
+      MsgBox "Could not get description.", vbApplicationModal + vbDefaultButton1 + vbInformation, "Error"
+      GoTo EXIT_NOMSG
+    End If
+  Else
+    'No Response
+    GoTo EXIT_NOMSG
+  End If
+
+
+EXIT_NOMSG:
+  'enable the controls for another search
+  
+  cmdViewDesc.Enabled = True
+  cmdViewCode.Enabled = True
+  cmdSearch.Enabled = True
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Status1.Panels(1).Text = "PSC Explorer v" & App.Major & "." & App.Minor & "." & App.Revision
+  Exit Sub
+
+oops:
+
+  If Err.Number = 9 Then
+    lvTopCode.Visible = False
+    lvData.Visible = True
+    tmrTimeOut.Enabled = False
+    Screen.MousePointer = vbDefault
+    cmdNextPage.Enabled = False
+    cmdBackPage.Enabled = False
+    cmdStop.Enabled = False
+    cmdRefresh.Enabled = True
+    m_bGotResponse = True
+    cmdSearch.Enabled = True
+    cmbWorld.Enabled = True
+    Status1.Panels(1).Text = "PSC Explorer v" & App.Major & "." & App.Minor & "." & App.Revision
+    MsgBox "No Items where found in that catagory.", _
+        vbApplicationModal + vbDefaultButton1 + vbInformation, "Sorry"
+  Else
+    Status1.Panels(1).Text = "Error Durring Search."
+    Resume Next
+    'MsgBox "An Error has occured." & vbCrLf & Err.Description, vbApplicationModal + vbCritical + vbDefaultButton1, "Error"
+  End If
+
+End Sub
+
+Private Sub wsDesc_Connect()
+  Dim strHttpRequest As String
+  Dim strDescPage As String
+  Dim intIndex As Integer
+  
+  If lvData.Visible Then
+    intIndex = lvData.SelectedItem.Index - 1
+  Else
+    intIndex = lvTopCode.SelectedItem.Index - 1
+  End If
+  strDescPage = Replace$(Replace$(CODE_PAGE, "XXCODEIDXX", _
+      PSCInfo(intIndex).PSC_ID), "XXLNGWIDXX", _
+      PSCInfo(intIndex).PSC_WORLD)
+
+  If bUseProxy Then
+    strHttpRequest = "GET " & URL & strDescPage & " HTTP/1.1" & vbCrLf
+  Else
+    strHttpRequest = "GET " & strDescPage & " HTTP/1.1" & vbCrLf
+  End If
+  strHttpRequest = strHttpRequest & "Host: " & URL & vbCrLf
+  strHttpRequest = strHttpRequest & "Accept: */*" & vbCrLf
+  strHttpRequest = strHttpRequest & "User_Agent: PSC Explorer" & vbCrLf
+  strHttpRequest = strHttpRequest & "Connection: close" & vbCrLf
+  strHttpRequest = strHttpRequest & vbCrLf
+  'send the request
+  If booStopSearch Then wsSearch.Close: GoTo EXIT_LABEL
+  Status1.Panels(1).Text = "Connected to PSC..."
+  wsDesc.SendData strHttpRequest
+  Exit Sub
+EXIT_LABEL:
+  'enable the controls for another search
+  lvTopCode.Visible = False
+  lvData.Visible = True
+  m_bGotResponse = True
+  cmdSearch.Enabled = True
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Status1.Panels(1).Text = "Search Aborted by User."
+End Sub
+
+Private Sub wsDesc_DataArrival(ByVal bytesTotal As Long)
+  Dim strData As String
+  If booStopSearch Then wsDesc.Close: GoTo EXIT_LABEL
+  Status1.Panels(1).Text = "Collecting Data..."
+  wsDesc.GetData strData
+  m_strHttpResponse = m_strHttpResponse & strData
+  Exit Sub
+EXIT_LABEL:
+  'enable the controls for another search
+  lvData.Visible = True
+  lvTopCode.Visible = False
+  lvData.Enabled = True
+  m_bGotResponse = True
+  cmdSearch.Enabled = True
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Status1.Panels(1).Text = "Search Aborted by User."
+End Sub
+
+Private Sub wsSearch_Close()
+  Dim x As Long, pscInf() As PSCData
+
+  On Error GoTo oops
+
+  If booStopSearch Then
+    Status1.Panels(1).Text = "Search Aborted by User."
+    m_bGotResponse = True
+    GoTo EXIT_LABEL
+  End If
+
+  m_strHttpResponse = Mid(m_strHttpResponse, InStr(1, m_strHttpResponse, _
+      vbCrLf & vbCrLf) + 4)
+  '
+  If Not m_bGotResponse Then
+    If ParseDataAdvanced(m_strHttpResponse, pscInf()) Then
+      PSCInfo() = pscInf()
+      lvData.ListItems.Clear
+      For x = 0 To UBound(pscInf)
+        lvData.ListItems.Add , "ItemID=" & pscInf(x).PSC_ID, _
+            pscInf(x).PSC_TITLE, , imgList.ListImages(pscInf(x).PSC_TYPE).Index
+        lvData.ListItems(x + 1).ToolTipText = pscInf(x).PSC_DESCRIPTION
+        lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , _
+            "Author" & x, pscInf(x).PSC_AUTHOR
+        lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , "Date" & x, _
+            pscInf(x).PSC_DATE
+        lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , "World" & x, _
+            cmbWorld.List(CInt(pscInf(x).PSC_WORLD))
+        lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , "Level" & x, _
+            pscInf(x).PSC_LEVEL
+        lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , _
+            "CodeCompat" & x, pscInf(x).PSC_CODECOMPAT
+        lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , "Views" & x, _
+            FormatNumber(pscInf(x).PSC_VIEWS, 0)
+        lvData.ListItems(lvData.ListItems.Count).ListSubItems.Add , _
+            "Rating" & x, pscInf(x).PSC_RATE
+      Next x
+      'Set the status panel to show how many results we are displaying out of how many
+      If lvData.ListItems.Count < lngTotalResults Then
+        Status1.Panels(1).Text = "Displaying " & (( _
+            lvData.ListItems.Count * intCurrentPage) - lvData.ListItems.Count) + 1 & _
+            " - " & lvData.ListItems.Count * intCurrentPage & " of " & _
+            lngTotalResults & " - Page " & intCurrentPage & " of " & Round( _
+            intMaxPerPage / lngTotalResults, 0) + 1
+      Else
+        Status1.Panels(1).Text = "Displaying " & (( _
+            lvData.ListItems.Count * intCurrentPage) - lvData.ListItems.Count) + 1 & _
+            " - " & lvData.ListItems.Count * intCurrentPage & " of " & _
+            lngTotalResults & " - Page 1 of 1"
+      End If
+      If lvData.ListItems.Count * intCurrentPage < lngTotalResults Then
+        'Enable the Next Page Button
+        cmdNextPage.Enabled = True
+      Else
+        'Disable the nesxt Page Button because there are no more to didplay
+        cmdNextPage.Enabled = False
+      End If
+      m_bGotResponse = True
+      'Enable the Back Page Button
+      If intCurrentPage <= 1 Then
+        cmdBackPage.Enabled = False
+      Else
+        cmdBackPage.Enabled = True
+      End If
+      
+      
+    Else
+      m_bGotResponse = True
+      cmdSearch.Enabled = True
+      cmbWorld.Enabled = True
+      cmdNextPage.Enabled = False
+      cmdBackPage.Enabled = False
+    End If
+  End If
+  lvData.Enabled = True
+EXIT_LABEL:
+  'enable the controls for another search
+  lvTopCode.Visible = False
+  lvData.Visible = True
+  cmdSearch.Enabled = True
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Exit Sub
+oops:
+
+  If Err.Number = 9 Then
+    lvTopCode.Visible = False
+    lvData.Visible = True
+    tmrTimeOut.Enabled = False
+    Screen.MousePointer = vbDefault
+    cmdNextPage.Enabled = False
+    cmdBackPage.Enabled = False
+    cmdStop.Enabled = False
+    cmdRefresh.Enabled = True
+    m_bGotResponse = True
+    cmdSearch.Enabled = True
+    cmbWorld.Enabled = True
+    Status1.Panels(1).Text = "No Items to Display."
+    MsgBox "No Items where found in that catagory.", _
+        vbApplicationModal + vbDefaultButton1 + vbInformation, "Sorry"
+  Else
+    Status1.Panels(1).Text = "Error Durring Search."
+    Resume Next
+    'MsgBox "An Error has occured." & vbCrLf & Err.Description, vbApplicationModal + vbCritical + vbDefaultButton1, "Error"
+  End If
+
+End Sub
+
+Private Sub wsSearch_Connect()
+  Dim strHttpRequest As String
+  If bUseProxy Then
+    strHttpRequest = "GET " & URL & strPage & " HTTP/1.1" & vbCrLf
+  Else
+    strHttpRequest = "GET " & strPage & " HTTP/1.1" & vbCrLf
+  End If
+  strHttpRequest = strHttpRequest & _
+      "Host: " & URL & vbCrLf
+  strHttpRequest = strHttpRequest & "Accept: */*" & vbCrLf
+  strHttpRequest = strHttpRequest & "User_Agent: PSC Explorer" & vbCrLf
+  strHttpRequest = strHttpRequest & "Connection: close" & vbCrLf
+  strHttpRequest = strHttpRequest & vbCrLf
+  'send the request
+  If booStopSearch Then wsSearch.Close: GoTo EXIT_LABEL
+  Status1.Panels(1).Text = "Connected to PSC..."
+  wsSearch.SendData strHttpRequest
+  Exit Sub
+EXIT_LABEL:
+  'enable the controls for another search
+  m_bGotResponse = True
+  cmdSearch.Enabled = True
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Status1.Panels(1).Text = "Search Aborted by User."
+End Sub
+
+Private Sub wsSearch_DataArrival(ByVal bytesTotal As Long)
+  On Error Resume Next
+  Dim strData As String
+  If booStopSearch Then wsSearch.Close: GoTo EXIT_LABEL
+  Status1.Panels(1).Text = "Collecting Data..."
+  wsSearch.GetData strData
+  m_strHttpResponse = m_strHttpResponse & strData
+  Exit Sub
+EXIT_LABEL:
+  'enable the controls for another search
+  m_bGotResponse = True
+  cmdSearch.Enabled = True
+  cmdGetNewest.Enabled = True
+  cmbWorld.Enabled = True
+  cmdStop.Enabled = False
+  cmdRefresh.Enabled = True
+  'reset the mouse pointer
+  Screen.MousePointer = vbDefault
+  'stop the timeout timer
+  tmrTimeOut.Enabled = False
+  'Reset the Time out
+  intTimeOut_Current = 0
+  Status1.Panels(1).Text = "Search Aborted by User."
+End Sub
+
